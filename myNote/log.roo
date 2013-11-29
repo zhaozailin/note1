@@ -1,0 +1,21 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-29 10:49:03
+project --topLevelPackage com.zzl.myNote --projectName myNote
+hint
+jpa setup --provider HIBERNATE --database MYSQL --hostName root --password 1234
+jpa setup --provider HIBERNATE --database MYSQL --hostName localhost --password 1234 --userName root
+hint
+entity jpa --class com.zzl.mynote.domain.Artical --testAutomatically 
+field string --fieldName content
+hint
+web mvc setup
+web mvc all --package com.zzl.mynote.controller
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-29 10:59:29
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-29 11:02:45
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-29 11:05:36
+jpa setup --provider HIBERNATE --database MYSQL --hostName localhost --password 1234 --userName root --databaseName myNote
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-29 11:10:47
+focus --class ~.domain.Artical
+// [failed] field string --fieldName content --sizeMax 9
+field string --fieldName xxx --sizeMax 9
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-29 11:19:16
