@@ -32,3 +32,10 @@ focus --class ~.domain.Artical
 field reference --fieldName type --type ~.domain.ArticalType --cardinality MANY_TO_ONE
 focus --class ~.domain.ArticalType
 field set --fieldName articals --type ~.domain.Artical --cardinality ONE_TO_MANY --mappedBy type
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-02 17:11:18
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-02 17:12:06
+focus --class ~.domain.Artical
+field date --fieldName t --type java.util.Date --dateFormat NONE
+field date --fieldName tt --type java.util.Date --dateTimeFormatPattern "yy-MM-dd hh:mm:ss"
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-02 17:23:57
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-02 17:25:26

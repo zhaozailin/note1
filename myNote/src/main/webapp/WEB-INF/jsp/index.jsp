@@ -13,13 +13,20 @@
 <link type="text/css" rel="stylesheet" href="styles/common.css"/>
 
 <script type="text/javascript">
-	$(document).ready(function(){
-		dp.SyntaxHighlighter.ClipboardSwf = 'styles/plugin/dp.SyntaxHighlighter/Scripts/clipboard.swf';
-	    dp.SyntaxHighlighter.HighlightAll('code');
-	});
+// 	$(document).ready(function(){
+// 		dp.SyntaxHighlighter.ClipboardSwf = 'styles/plugin/dp.SyntaxHighlighter/Scripts/clipboard.swf';
+// 	    dp.SyntaxHighlighter.HighlightAll('code');
+// 	});
+	function t() {
+		var json = {title:"t", content:"xxxx", tt:"2012-12-12 1:1:1"};
+		$.get("articals/test", json, function(result){
+			
+		}, "json");
+	}
 </script>
 </head>
 <body>
+	<button class="btn" onclick="t()">test</button>
 	<div class="container" style="margin-top:10px">
 		<div class="row">
 			<div class="col-xs-12">

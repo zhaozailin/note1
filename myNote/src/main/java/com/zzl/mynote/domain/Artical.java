@@ -30,13 +30,13 @@ public class Artical {
     /**
      */
     @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @DateTimeFormat(pattern = "yy-MM-dd hh:mm:ss")
     private Date beginDate;
 
     /**
      */
     @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @DateTimeFormat(pattern = "yy-MM-dd hh:mm:ss")
     private Date updateDate;
 
     /**
