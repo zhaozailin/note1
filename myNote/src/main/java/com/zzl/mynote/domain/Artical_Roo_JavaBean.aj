@@ -4,6 +4,8 @@
 package com.zzl.mynote.domain;
 
 import com.zzl.mynote.domain.Artical;
+import com.zzl.mynote.domain.ArticalType;
+import java.util.Date;
 
 privileged aspect Artical_Roo_JavaBean {
     
@@ -13,6 +15,54 @@ privileged aspect Artical_Roo_JavaBean {
     
     public void Artical.setContent(String content) {
         this.content = content;
+    }
+    
+    public String Artical.getTitle() {
+        return this.title;
+    }
+    
+    public void Artical.setTitle(String title) {
+        this.title = title;
+    }
+    
+    public String Artical.getAuthor() {
+        return this.author;
+    }
+    
+    public void Artical.setAuthor(String author) {
+        this.author = author;
+    }
+    
+    public Date Artical.getBeginDate() {
+        return this.beginDate;
+    }
+    
+    public void Artical.setBeginDate(Date beginDate) {
+        this.beginDate = beginDate;
+    }
+    
+    public Date Artical.getUpdateDate() {
+        return this.updateDate;
+    }
+    
+    public void Artical.setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+    
+    public String Artical.getLabel() {
+        return this.label;
+    }
+    
+    public void Artical.setLabel(String label) {
+        this.label = label;
+    }
+    
+    public ArticalType Artical.getType() {
+        return this.type;
+    }
+    
+    public void Artical.setType(ArticalType type) {
+        this.type = type;
     }
     
 }

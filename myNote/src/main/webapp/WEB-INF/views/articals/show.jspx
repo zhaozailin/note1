@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_zzl_mynote_domain_Artical" object="${artical}" path="/articals" z="kpf4yzq4XLcScBv4W4AoXZT/KX8=">
+        <field:display field="content" id="s_com_zzl_mynote_domain_Artical_content" object="${artical}" z="fxBpgLx4Oe/hq2EM6rEOw311hDM="/>
+        <field:display field="title" id="s_com_zzl_mynote_domain_Artical_title" object="${artical}" z="klMX6DmPXbpnmGhQbHWQBcdyk1Q="/>
+        <field:display field="author" id="s_com_zzl_mynote_domain_Artical_author" object="${artical}" z="BK8n9QAVLgRptjf8K3CKS1lzOws="/>
+        <field:display date="true" dateTimePattern="${artical_begindate_date_format}" field="beginDate" id="s_com_zzl_mynote_domain_Artical_beginDate" object="${artical}" z="g/yWskNWsG0VKVAq/Ki970XYdnE="/>
+        <field:display date="true" dateTimePattern="${artical_updatedate_date_format}" field="updateDate" id="s_com_zzl_mynote_domain_Artical_updateDate" object="${artical}" z="RrDLPX6Qm2jlZRx0Zc85PAL9ELo="/>
+        <field:display field="label" id="s_com_zzl_mynote_domain_Artical_label" object="${artical}" z="f+qcHVWj+EHXiY8fQBncqbtKbd0="/>
+        <field:display field="type" id="s_com_zzl_mynote_domain_Artical_type" object="${artical}" z="wcqMgcyOn6zi+nV2DUAw+db0mhU="/>
+    </page:show>
+</div>

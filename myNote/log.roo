@@ -19,3 +19,16 @@ focus --class ~.domain.Artical
 // [failed] field string --fieldName content --sizeMax 9
 field string --fieldName xxx --sizeMax 9
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-29 11:19:16
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-02 15:44:39
+focus --class ~.domain.Artical
+field string --fieldName title
+field string --fieldName author
+field date --fieldName beginDate --type java.util.Date --dateFormat MEDIUM
+field date --fieldName updateDate --type java.util.Date --dateFormat MEDIUM
+field string --fieldName label
+entity jpa --class ~.domain.ArticalType --testAutomatically 
+field string --fieldName name
+focus --class ~.domain.Artical
+field reference --fieldName type --type ~.domain.ArticalType --cardinality MANY_TO_ONE
+focus --class ~.domain.ArticalType
+field set --fieldName articals --type ~.domain.Artical --cardinality ONE_TO_MANY --mappedBy type

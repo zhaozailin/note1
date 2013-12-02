@@ -16,7 +16,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Artical, String> ApplicationConversionServiceFactoryBean.getArticalToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.zzl.mynote.domain.Artical, java.lang.String>() {
             public String convert(Artical artical) {
-                return new StringBuilder().append(artical.getContent()).toString();
+                return new StringBuilder().append(artical.getContent()).append(' ').append(artical.getTitle()).append(' ').append(artical.getAuthor()).append(' ').append(artical.getBeginDate()).toString();
             }
         };
     }

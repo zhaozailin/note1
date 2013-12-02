@@ -5,9 +5,12 @@ package com.zzl.mynote.controller;
 
 import com.zzl.mynote.controller.ArticalController;
 import com.zzl.mynote.domain.Artical;
+import com.zzl.mynote.domain.ArticalType;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,6 +41,7 @@ privileged aspect ArticalController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String ArticalController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("artical", Artical.findArtical(id));
         uiModel.addAttribute("itemId", id);
         return "articals/show";
@@ -54,6 +58,7 @@ privileged aspect ArticalController_Roo_Controller {
         } else {
             uiModel.addAttribute("articals", Artical.findAllArticals());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "articals/list";
     }
     
@@ -84,8 +89,15 @@ privileged aspect ArticalController_Roo_Controller {
         return "redirect:/articals";
     }
     
+    void ArticalController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("artical_begindate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("artical_updatedate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+    }
+    
     void ArticalController.populateEditForm(Model uiModel, Artical artical) {
         uiModel.addAttribute("artical", artical);
+        addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("articaltypes", ArticalType.findAllArticalTypes());
     }
     
     String ArticalController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

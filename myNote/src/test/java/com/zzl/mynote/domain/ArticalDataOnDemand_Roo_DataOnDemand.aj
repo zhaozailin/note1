@@ -5,13 +5,18 @@ package com.zzl.mynote.domain;
 
 import com.zzl.mynote.domain.Artical;
 import com.zzl.mynote.domain.ArticalDataOnDemand;
+import com.zzl.mynote.domain.ArticalTypeDataOnDemand;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect ArticalDataOnDemand_Roo_DataOnDemand {
@@ -22,15 +27,48 @@ privileged aspect ArticalDataOnDemand_Roo_DataOnDemand {
     
     private List<Artical> ArticalDataOnDemand.data;
     
+    @Autowired
+    ArticalTypeDataOnDemand ArticalDataOnDemand.articalTypeDataOnDemand;
+    
     public Artical ArticalDataOnDemand.getNewTransientArtical(int index) {
         Artical obj = new Artical();
+        setAuthor(obj, index);
+        setBeginDate(obj, index);
         setContent(obj, index);
+        setLabel(obj, index);
+        setTitle(obj, index);
+        setUpdateDate(obj, index);
         return obj;
+    }
+    
+    public void ArticalDataOnDemand.setAuthor(Artical obj, int index) {
+        String author = "author_" + index;
+        obj.setAuthor(author);
+    }
+    
+    public void ArticalDataOnDemand.setBeginDate(Artical obj, int index) {
+        Date beginDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
+        obj.setBeginDate(beginDate);
     }
     
     public void ArticalDataOnDemand.setContent(Artical obj, int index) {
         String content = "content_" + index;
         obj.setContent(content);
+    }
+    
+    public void ArticalDataOnDemand.setLabel(Artical obj, int index) {
+        String label = "label_" + index;
+        obj.setLabel(label);
+    }
+    
+    public void ArticalDataOnDemand.setTitle(Artical obj, int index) {
+        String title = "title_" + index;
+        obj.setTitle(title);
+    }
+    
+    public void ArticalDataOnDemand.setUpdateDate(Artical obj, int index) {
+        Date updateDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
+        obj.setUpdateDate(updateDate);
     }
     
     public Artical ArticalDataOnDemand.getSpecificArtical(int index) {
