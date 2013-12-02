@@ -18,7 +18,7 @@
 <body>
 	<pre name="code" class="html">
 		<div class="t">
-			<img src="jds/ht.gif"/>
+			<img src="images/Chrysanthemum.jpg"/>
 		</div>
 	</pre>
 </body>
