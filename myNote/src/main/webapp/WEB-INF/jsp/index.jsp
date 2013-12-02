@@ -2,12 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>zailinZhao's note</title>
+<!-- 语法高亮插件 -->
 <link type="text/css" rel="stylesheet" href="styles/plugin/dp.SyntaxHighlighter/Styles/SyntaxHighlighter.css"/>
-<script type="text/javascript" src="js/plugin/jquery-1.10.2.min.js"></script>
-<script language="javascript" src="styles/plugin/dp.SyntaxHighlighter/Scripts/shCore.js"></script>
-<script language="javascript" src="styles/plugin/dp.SyntaxHighlighter/Scripts/shBrushCSharp.js"></script>
-<script language="javascript" src="styles/plugin/dp.SyntaxHighlighter/Scripts/shBrushXml.js"></script>
+<!-- font awesome -->
+<link type="text/css" rel="stylesheet" href="styles/plugin/font-awesome-4.0.1/css/font-awesome.css"/>
+<!-- bootstrap -->
+<link type="text/css" rel="stylesheet" href="js/dist/css/bootstrap.css"/>
 <script type="text/javascript">
 	$(document).ready(function(){
 		dp.SyntaxHighlighter.ClipboardSwf = 'styles/plugin/dp.SyntaxHighlighter/Scripts/clipboard.swf';
@@ -16,10 +17,14 @@
 </script>
 </head>
 <body>
-	<pre name="code" class="html">
-		<div class="t">
-			<img src="images/Chrysanthemum.jpg"/>
-		</div>
-	</pre>
+
+<!-- jquery -->
+<script type="text/javascript" src="js/plugin/jquery-1.10.2.min.js"></script>
+<!-- 语法高亮插件 -->
+<script language="javascript" src="styles/plugin/dp.SyntaxHighlighter/Scripts/shCore.js"></script>
+<script language="javascript" src="styles/plugin/dp.SyntaxHighlighter/Scripts/shBrushCSharp.js"></script>
+<script language="javascript" src="styles/plugin/dp.SyntaxHighlighter/Scripts/shBrushXml.js"></script>
+<!-- bootstrap -->
+<script language="javascript" src="js/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
