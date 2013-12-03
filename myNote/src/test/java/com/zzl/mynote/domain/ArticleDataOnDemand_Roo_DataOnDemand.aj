@@ -3,9 +3,9 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.Artical;
-import com.zzl.mynote.domain.ArticalDataOnDemand;
-import com.zzl.mynote.domain.ArticalTypeDataOnDemand;
+import com.zzl.mynote.domain.Article;
+import com.zzl.mynote.domain.ArticleDataOnDemand;
+import com.zzl.mynote.domain.ArticleTypeDataOnDemand;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,19 +19,19 @@ import javax.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-privileged aspect ArticalDataOnDemand_Roo_DataOnDemand {
+privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
     
-    declare @type: ArticalDataOnDemand: @Component;
+    declare @type: ArticleDataOnDemand: @Component;
     
-    private Random ArticalDataOnDemand.rnd = new SecureRandom();
+    private Random ArticleDataOnDemand.rnd = new SecureRandom();
     
-    private List<Artical> ArticalDataOnDemand.data;
+    private List<Article> ArticleDataOnDemand.data;
     
     @Autowired
-    ArticalTypeDataOnDemand ArticalDataOnDemand.articalTypeDataOnDemand;
+    ArticleTypeDataOnDemand ArticleDataOnDemand.articleTypeDataOnDemand;
     
-    public Artical ArticalDataOnDemand.getNewTransientArtical(int index) {
-        Artical obj = new Artical();
+    public Article ArticleDataOnDemand.getNewTransientArticle(int index) {
+        Article obj = new Article();
         setAuthor(obj, index);
         setBeginDate(obj, index);
         setContent(obj, index);
@@ -41,37 +41,37 @@ privileged aspect ArticalDataOnDemand_Roo_DataOnDemand {
         return obj;
     }
     
-    public void ArticalDataOnDemand.setAuthor(Artical obj, int index) {
+    public void ArticleDataOnDemand.setAuthor(Article obj, int index) {
         String author = "author_" + index;
         obj.setAuthor(author);
     }
     
-    public void ArticalDataOnDemand.setBeginDate(Artical obj, int index) {
+    public void ArticleDataOnDemand.setBeginDate(Article obj, int index) {
         Date beginDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
         obj.setBeginDate(beginDate);
     }
     
-    public void ArticalDataOnDemand.setContent(Artical obj, int index) {
+    public void ArticleDataOnDemand.setContent(Article obj, int index) {
         String content = "content_" + index;
         obj.setContent(content);
     }
     
-    public void ArticalDataOnDemand.setLabel(Artical obj, int index) {
+    public void ArticleDataOnDemand.setLabel(Article obj, int index) {
         String label = "label_" + index;
         obj.setLabel(label);
     }
     
-    public void ArticalDataOnDemand.setTitle(Artical obj, int index) {
+    public void ArticleDataOnDemand.setTitle(Article obj, int index) {
         String title = "title_" + index;
         obj.setTitle(title);
     }
     
-    public void ArticalDataOnDemand.setUpdateDate(Artical obj, int index) {
+    public void ArticleDataOnDemand.setUpdateDate(Article obj, int index) {
         Date updateDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
         obj.setUpdateDate(updateDate);
     }
     
-    public Artical ArticalDataOnDemand.getSpecificArtical(int index) {
+    public Article ArticleDataOnDemand.getSpecificArticle(int index) {
         init();
         if (index < 0) {
             index = 0;
@@ -79,36 +79,36 @@ privileged aspect ArticalDataOnDemand_Roo_DataOnDemand {
         if (index > (data.size() - 1)) {
             index = data.size() - 1;
         }
-        Artical obj = data.get(index);
+        Article obj = data.get(index);
         Long id = obj.getId();
-        return Artical.findArtical(id);
+        return Article.findArticle(id);
     }
     
-    public Artical ArticalDataOnDemand.getRandomArtical() {
+    public Article ArticleDataOnDemand.getRandomArticle() {
         init();
-        Artical obj = data.get(rnd.nextInt(data.size()));
+        Article obj = data.get(rnd.nextInt(data.size()));
         Long id = obj.getId();
-        return Artical.findArtical(id);
+        return Article.findArticle(id);
     }
     
-    public boolean ArticalDataOnDemand.modifyArtical(Artical obj) {
+    public boolean ArticleDataOnDemand.modifyArticle(Article obj) {
         return false;
     }
     
-    public void ArticalDataOnDemand.init() {
+    public void ArticleDataOnDemand.init() {
         int from = 0;
         int to = 10;
-        data = Artical.findArticalEntries(from, to);
+        data = Article.findArticleEntries(from, to);
         if (data == null) {
-            throw new IllegalStateException("Find entries implementation for 'Artical' illegally returned null");
+            throw new IllegalStateException("Find entries implementation for 'Article' illegally returned null");
         }
         if (!data.isEmpty()) {
             return;
         }
         
-        data = new ArrayList<Artical>();
+        data = new ArrayList<Article>();
         for (int i = 0; i < 10; i++) {
-            Artical obj = getNewTransientArtical(i);
+            Article obj = getNewTransientArticle(i);
             try {
                 obj.persist();
             } catch (final ConstraintViolationException e) {

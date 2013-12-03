@@ -3,11 +3,11 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.ArticalTypeIntegrationTest;
+import com.zzl.mynote.domain.ArticleTypeIntegrationTest;
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect ArticalTypeIntegrationTest_Roo_Configurable {
+privileged aspect ArticleTypeIntegrationTest_Roo_Configurable {
     
-    declare @type: ArticalTypeIntegrationTest: @Configurable;
+    declare @type: ArticleTypeIntegrationTest: @Configurable;
     
 }

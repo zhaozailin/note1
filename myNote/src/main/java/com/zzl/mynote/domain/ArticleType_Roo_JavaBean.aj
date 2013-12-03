@@ -3,25 +3,25 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.Artical;
-import com.zzl.mynote.domain.ArticalType;
+import com.zzl.mynote.domain.Article;
+import com.zzl.mynote.domain.ArticleType;
 import java.util.Set;
 
-privileged aspect ArticalType_Roo_JavaBean {
+privileged aspect ArticleType_Roo_JavaBean {
     
-    public String ArticalType.getName() {
+    public String ArticleType.getName() {
         return this.name;
     }
     
-    public void ArticalType.setName(String name) {
+    public void ArticleType.setName(String name) {
         this.name = name;
     }
     
-    public Set<Artical> ArticalType.getArticals() {
+    public Set<Article> ArticleType.getArticals() {
         return this.articals;
     }
     
-    public void ArticalType.setArticals(Set<Artical> articals) {
+    public void ArticleType.setArticals(Set<Article> articals) {
         this.articals = articals;
     }
     

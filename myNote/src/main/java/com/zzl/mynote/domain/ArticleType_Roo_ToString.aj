@@ -3,13 +3,13 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.ArticalType;
+import com.zzl.mynote.domain.ArticleType;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-privileged aspect ArticalType_Roo_ToString {
+privileged aspect ArticleType_Roo_ToString {
     
-    public String ArticalType.toString() {
+    public String ArticleType.toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
     

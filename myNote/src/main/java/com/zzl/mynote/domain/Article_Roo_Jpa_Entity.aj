@@ -3,7 +3,7 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.Artical;
+import com.zzl.mynote.domain.Article;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,32 +11,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
-privileged aspect Artical_Roo_Jpa_Entity {
+privileged aspect Article_Roo_Jpa_Entity {
     
-    declare @type: Artical: @Entity;
+    declare @type: Article: @Entity;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long Artical.id;
+    private Long Article.id;
     
     @Version
     @Column(name = "version")
-    private Integer Artical.version;
+    private Integer Article.version;
     
-    public Long Artical.getId() {
+    public Long Article.getId() {
         return this.id;
     }
     
-    public void Artical.setId(Long id) {
+    public void Article.setId(Long id) {
         this.id = id;
     }
     
-    public Integer Artical.getVersion() {
+    public Integer Article.getVersion() {
         return this.version;
     }
     
-    public void Artical.setVersion(Integer version) {
+    public void Article.setVersion(Integer version) {
         this.version = version;
     }
     

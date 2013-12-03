@@ -6,13 +6,15 @@ import org.springframework.roo.addon.tostring.RooToString;
 import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.core.annotation.Order;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.ManyToOne;
 
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class Artical {
+public class Article {
 
     /**
      */
@@ -37,6 +39,7 @@ public class Artical {
      */
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yy-MM-dd hh:mm:ss")
+    @Order
     private Date updateDate;
 
     /**
@@ -46,5 +49,5 @@ public class Artical {
     /**
      */
     @ManyToOne
-    private ArticalType type;
+    private ArticleType type;
 }

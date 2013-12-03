@@ -3,65 +3,65 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.Artical;
-import com.zzl.mynote.domain.ArticalType;
+import com.zzl.mynote.domain.Article;
+import com.zzl.mynote.domain.ArticleType;
 import java.util.Date;
 
-privileged aspect Artical_Roo_JavaBean {
+privileged aspect Article_Roo_JavaBean {
     
-    public String Artical.getContent() {
+    public String Article.getContent() {
         return this.content;
     }
     
-    public void Artical.setContent(String content) {
+    public void Article.setContent(String content) {
         this.content = content;
     }
     
-    public String Artical.getTitle() {
+    public String Article.getTitle() {
         return this.title;
     }
     
-    public void Artical.setTitle(String title) {
+    public void Article.setTitle(String title) {
         this.title = title;
     }
     
-    public String Artical.getAuthor() {
+    public String Article.getAuthor() {
         return this.author;
     }
     
-    public void Artical.setAuthor(String author) {
+    public void Article.setAuthor(String author) {
         this.author = author;
     }
     
-    public Date Artical.getBeginDate() {
+    public Date Article.getBeginDate() {
         return this.beginDate;
     }
     
-    public void Artical.setBeginDate(Date beginDate) {
+    public void Article.setBeginDate(Date beginDate) {
         this.beginDate = beginDate;
     }
     
-    public Date Artical.getUpdateDate() {
+    public Date Article.getUpdateDate() {
         return this.updateDate;
     }
     
-    public void Artical.setUpdateDate(Date updateDate) {
+    public void Article.setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
     
-    public String Artical.getLabel() {
+    public String Article.getLabel() {
         return this.label;
     }
     
-    public void Artical.setLabel(String label) {
+    public void Article.setLabel(String label) {
         this.label = label;
     }
     
-    public ArticalType Artical.getType() {
+    public ArticleType Article.getType() {
         return this.type;
     }
     
-    public void Artical.setType(ArticalType type) {
+    public void Article.setType(ArticleType type) {
         this.type = type;
     }
     

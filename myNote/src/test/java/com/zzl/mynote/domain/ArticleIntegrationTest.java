@@ -2,8 +2,8 @@ package com.zzl.mynote.domain;
 import org.junit.Test;
 import org.springframework.roo.addon.test.RooIntegrationTest;
 
-@RooIntegrationTest(entity = Artical.class)
-public class ArticalIntegrationTest {
+@RooIntegrationTest(entity = Article.class)
+public class ArticleIntegrationTest {
 
     @Test
     public void testMarkerMethod() {

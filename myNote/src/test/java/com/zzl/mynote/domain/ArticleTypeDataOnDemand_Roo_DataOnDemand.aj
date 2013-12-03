@@ -3,8 +3,8 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.ArticalType;
-import com.zzl.mynote.domain.ArticalTypeDataOnDemand;
+import com.zzl.mynote.domain.ArticleType;
+import com.zzl.mynote.domain.ArticleTypeDataOnDemand;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,26 +14,26 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.springframework.stereotype.Component;
 
-privileged aspect ArticalTypeDataOnDemand_Roo_DataOnDemand {
+privileged aspect ArticleTypeDataOnDemand_Roo_DataOnDemand {
     
-    declare @type: ArticalTypeDataOnDemand: @Component;
+    declare @type: ArticleTypeDataOnDemand: @Component;
     
-    private Random ArticalTypeDataOnDemand.rnd = new SecureRandom();
+    private Random ArticleTypeDataOnDemand.rnd = new SecureRandom();
     
-    private List<ArticalType> ArticalTypeDataOnDemand.data;
+    private List<ArticleType> ArticleTypeDataOnDemand.data;
     
-    public ArticalType ArticalTypeDataOnDemand.getNewTransientArticalType(int index) {
-        ArticalType obj = new ArticalType();
+    public ArticleType ArticleTypeDataOnDemand.getNewTransientArticleType(int index) {
+        ArticleType obj = new ArticleType();
         setName(obj, index);
         return obj;
     }
     
-    public void ArticalTypeDataOnDemand.setName(ArticalType obj, int index) {
+    public void ArticleTypeDataOnDemand.setName(ArticleType obj, int index) {
         String name = "name_" + index;
         obj.setName(name);
     }
     
-    public ArticalType ArticalTypeDataOnDemand.getSpecificArticalType(int index) {
+    public ArticleType ArticleTypeDataOnDemand.getSpecificArticleType(int index) {
         init();
         if (index < 0) {
             index = 0;
@@ -41,36 +41,36 @@ privileged aspect ArticalTypeDataOnDemand_Roo_DataOnDemand {
         if (index > (data.size() - 1)) {
             index = data.size() - 1;
         }
-        ArticalType obj = data.get(index);
+        ArticleType obj = data.get(index);
         Long id = obj.getId();
-        return ArticalType.findArticalType(id);
+        return ArticleType.findArticleType(id);
     }
     
-    public ArticalType ArticalTypeDataOnDemand.getRandomArticalType() {
+    public ArticleType ArticleTypeDataOnDemand.getRandomArticleType() {
         init();
-        ArticalType obj = data.get(rnd.nextInt(data.size()));
+        ArticleType obj = data.get(rnd.nextInt(data.size()));
         Long id = obj.getId();
-        return ArticalType.findArticalType(id);
+        return ArticleType.findArticleType(id);
     }
     
-    public boolean ArticalTypeDataOnDemand.modifyArticalType(ArticalType obj) {
+    public boolean ArticleTypeDataOnDemand.modifyArticleType(ArticleType obj) {
         return false;
     }
     
-    public void ArticalTypeDataOnDemand.init() {
+    public void ArticleTypeDataOnDemand.init() {
         int from = 0;
         int to = 10;
-        data = ArticalType.findArticalTypeEntries(from, to);
+        data = ArticleType.findArticleTypeEntries(from, to);
         if (data == null) {
-            throw new IllegalStateException("Find entries implementation for 'ArticalType' illegally returned null");
+            throw new IllegalStateException("Find entries implementation for 'ArticleType' illegally returned null");
         }
         if (!data.isEmpty()) {
             return;
         }
         
-        data = new ArrayList<ArticalType>();
+        data = new ArrayList<ArticleType>();
         for (int i = 0; i < 10; i++) {
-            ArticalType obj = getNewTransientArticalType(i);
+            ArticleType obj = getNewTransientArticleType(i);
             try {
                 obj.persist();
             } catch (final ConstraintViolationException e) {

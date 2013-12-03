@@ -3,14 +3,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.zzl.mynote.domain.Artical;
+import com.zzl.mynote.domain.Article;
 
 @RequestMapping("/articals")
 @Controller
-public class ArticalController {
+public class ArticleController {
 	@RequestMapping(value="/test")
 	@ResponseBody
-	public String test(Artical artical) {
+	public String test(Article artical) {
 		return "1";
 	}
 }

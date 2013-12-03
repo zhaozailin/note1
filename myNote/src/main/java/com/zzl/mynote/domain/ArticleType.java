@@ -6,11 +6,12 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class ArticalType {
+public class ArticleType {
 
     /**
      */
@@ -19,5 +20,6 @@ public class ArticalType {
     /**
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
-    private Set<Artical> articals = new HashSet<Artical>();
+    @OrderBy("updateDate")
+    private Set<Article> articals = new HashSet<Article>();
 }

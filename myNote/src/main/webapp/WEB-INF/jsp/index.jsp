@@ -54,5 +54,6 @@
 <script language="javascript" src="styles/plugin/dp.SyntaxHighlighter/Scripts/shBrushXml.js"></script>
 <!-- bootstrap -->
 <script language="javascript" src="js/dist/js/bootstrap.min.js"></script>
+<script language="javascript" src="js/article.js"></script>
 </body>
 </html>

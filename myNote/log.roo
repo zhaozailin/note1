@@ -39,3 +39,5 @@ field date --fieldName t --type java.util.Date --dateFormat NONE
 field date --fieldName tt --type java.util.Date --dateTimeFormatPattern "yy-MM-dd hh:mm:ss"
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-02 17:23:57
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-02 17:25:26
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-02 17:55:08
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-03 09:03:13

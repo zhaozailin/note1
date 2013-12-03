@@ -3,73 +3,73 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.Artical;
+import com.zzl.mynote.domain.ArticleType;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
-privileged aspect Artical_Roo_Jpa_ActiveRecord {
+privileged aspect ArticleType_Roo_Jpa_ActiveRecord {
     
     @PersistenceContext
-    transient EntityManager Artical.entityManager;
+    transient EntityManager ArticleType.entityManager;
     
-    public static final EntityManager Artical.entityManager() {
-        EntityManager em = new Artical().entityManager;
+    public static final EntityManager ArticleType.entityManager() {
+        EntityManager em = new ArticleType().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long Artical.countArticals() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM Artical o", Long.class).getSingleResult();
+    public static long ArticleType.countArticleTypes() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM ArticleType o", Long.class).getSingleResult();
     }
     
-    public static List<Artical> Artical.findAllArticals() {
-        return entityManager().createQuery("SELECT o FROM Artical o", Artical.class).getResultList();
+    public static List<ArticleType> ArticleType.findAllArticleTypes() {
+        return entityManager().createQuery("SELECT o FROM ArticleType o", ArticleType.class).getResultList();
     }
     
-    public static Artical Artical.findArtical(Long id) {
+    public static ArticleType ArticleType.findArticleType(Long id) {
         if (id == null) return null;
-        return entityManager().find(Artical.class, id);
+        return entityManager().find(ArticleType.class, id);
     }
     
-    public static List<Artical> Artical.findArticalEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Artical o", Artical.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<ArticleType> ArticleType.findArticleTypeEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM ArticleType o", ArticleType.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
-    public void Artical.persist() {
+    public void ArticleType.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void Artical.remove() {
+    public void ArticleType.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Artical attached = Artical.findArtical(this.id);
+            ArticleType attached = ArticleType.findArticleType(this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void Artical.flush() {
+    public void ArticleType.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public void Artical.clear() {
+    public void ArticleType.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
     
     @Transactional
-    public Artical Artical.merge() {
+    public ArticleType ArticleType.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        Artical merged = this.entityManager.merge(this);
+        ArticleType merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }

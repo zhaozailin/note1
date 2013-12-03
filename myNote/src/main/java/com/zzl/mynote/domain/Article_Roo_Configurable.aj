@@ -3,11 +3,11 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.ArticalType;
+import com.zzl.mynote.domain.Article;
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect ArticalType_Roo_Configurable {
+privileged aspect Article_Roo_Configurable {
     
-    declare @type: ArticalType: @Configurable;
+    declare @type: Article: @Configurable;
     
 }
