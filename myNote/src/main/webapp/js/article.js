@@ -7,5 +7,8 @@ $(document).ready(function(){
 });
 
 article.queryList = function() {
-	$.get("articles/")
+	var json = {pageNo:0, limit:10};
+	$.get("articles/queryList", json, function() {
+		
+	}, "html");
 };
