@@ -5,7 +5,7 @@ var commonJSObj = {
 	//当前菜单url
 	url:null,
 	//原始查询条件
-	ori_queryOrgs:{},
+	ori_queryOrgs:{pageNo:0, limit:10},
 	//状态码
 	status:{
 		//成功
@@ -122,7 +122,6 @@ commonJSObj.switchPage = function(type, obj, href)
 		$("#ajaxQueryList").html(data);
 		//输出分页
 		commonJSObj.outputPageBtn(href);
-		showListIndexNo();
 		//绑定相关事件
 		commonJSObj.afterAjaxBandEvent(href);
 		$("#bg").hide();
@@ -203,12 +202,6 @@ commonJSObj.bsAlert = function(content, type)
 commonJSObj.pageOnload = function(href)
 {
 	commonJSObj.url = href;
-	//输出分页
-	commonJSObj.outputPageBtn(commonJSObj.url);
-	//页面加载后初始化原始查询条件，为了清空翻页查询时的条件
-	commonJSObj.ori_queryOrgs = {ajax:1, limit:10};
-	//输出序号
-//	showListIndexNo();
 	//给搜索按钮注册键盘监听
 	$("#queryFieldset").keypress(function(event){
 		if (event.keyCode == 13) {
@@ -239,8 +232,6 @@ commonJSObj.queryByPage = function()
 			$("#ajaxQueryList").html(data);
 			//输出分页
 			commonJSObj.outputPageBtn(commonJSObj.url);
-			//输出序号
-			showListIndexNo();
 			$("#bg").hide();
 		}
 	});
