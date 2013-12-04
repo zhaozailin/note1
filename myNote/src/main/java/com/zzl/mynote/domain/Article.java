@@ -59,17 +59,17 @@ public class Article {
 		if(null == keyword) {
 			keyword = "";
 		}
-		List<Article> list = entityManager().createQuery("select a from article a where a.content like %" + keyword + "% order by a.updateDate")
-				.setFirstResult(pageNo * limit + 1)
+		List<Article> list = entityManager().createQuery("select a from Article a where a.content like '%" + keyword + "%' order by a.updateDate")
+				.setFirstResult(pageNo * limit)
 				.setMaxResults(limit)
 				.getResultList();
 		return list;
 	}
 	
-	public static long queryAllList(String keyword) {
+	public static Long queryAllList(String keyword) {
 		if(null == keyword) {
 			keyword = "";
 		}
-		return (long) entityManager().createQuery("select count(*) from article a where a.content like %" + keyword + "%").getFirstResult();
+		return (Long) entityManager().createQuery("select count(*) from Article a where a.content like '%" + keyword + "%'").getSingleResult();
 	}
 }

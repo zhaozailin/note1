@@ -208,7 +208,7 @@ commonJSObj.pageOnload = function(href)
 	//页面加载后初始化原始查询条件，为了清空翻页查询时的条件
 	commonJSObj.ori_queryOrgs = {ajax:1, limit:10};
 	//输出序号
-	showListIndexNo();
+//	showListIndexNo();
 	//给搜索按钮注册键盘监听
 	$("#queryFieldset").keypress(function(event){
 		if (event.keyCode == 13) {

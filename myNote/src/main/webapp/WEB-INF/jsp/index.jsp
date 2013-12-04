@@ -27,7 +27,7 @@
 </script>
 </head>
 <body>
-	<div class="container" style="margin-top:10px">
+	<div class="container" style="margin-top:10px" id="queryFieldset">
 		<div class="row">
 			<div class="col-xs-12">
 				<h4>zailinZhao's note online v1.0</h4>
@@ -36,15 +36,18 @@
 		<div class="row" id="queryBtnField">
 			<div class="col-xs-12">
 				<div class="input-group">
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" id="queryKeyword">
 					<span class="input-group-btn">
-						<button class="btn btn-success" type="button" id="queryBtn">Go</button>
+						<button class="btn btn-success" type="button" id="queryIconBtn">Go</button>
 					</span>
 				</div>
 			</div>
 		</div>
+		<div style="height: 30px; margin-top: 10px; font-size: 20px;">
+			<i class="fa fa-spinner fa-spin" id="loadingUI" style="display: none;"></i>
+		</div>
 	</div>
-	<div class="container" style="margin-top:30px"></div>
+	<div class="container" id="mainContents"></div>
 	
 	
 <!-- jquery -->
