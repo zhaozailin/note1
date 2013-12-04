@@ -47,11 +47,11 @@ commonJSObj.showPageUI = function(pageNo, pageSum, href)
 	var pageString = "";
 	if(pageNo == 1)
 	{
-		pageString += "<li class='disabled previous'><span class='fui-arrow-left'></span></li>";
+		pageString += "<li class='disabled previous'><a href='javascript:void(0)'>&larr; Older</a></li>";
 	}
 	else
 	{
-		pageString += "<li class='previous'><a href='javascript:void(0)' onclick='commonJSObj.switchPage(2, null, \"" + href + "\")' class='fui-arrow-left'></a></li>";
+		pageString += "<li class='previous'><a href='javascript:void(0)' onclick='commonJSObj.switchPage(2, null, \"" + href + "\")'>&larr; Older</a></li>";
 	}
 	//若没有记录则显示0页
 	if(showPageSum <= 0)
@@ -67,7 +67,7 @@ commonJSObj.showPageUI = function(pageNo, pageSum, href)
 		{
 			if(pageNo == startPageNo)
 			{
-				pageString += "<li class='active'><span>" + startPageNo + "</span></li>";
+				pageString += "<li class='active'><a href='javascript:void(0)'>" + startPageNo + "</span></a></li>";
 			}
 			else
 			{
@@ -78,11 +78,11 @@ commonJSObj.showPageUI = function(pageNo, pageSum, href)
 	}
 	if(pageNo == pageSum || pageSum <= 0)
 	{
-		pageString += "<li class='disabled next'><span class='fui-arrow-right'></span></li>";
+		pageString += "<li class='disabled next'><a href='javascript:void(0)'>Newer &rarr;</a></li>";
 	}
 	else
 	{
-		pageString += "<li class='next'><a href='javascript:void(0)' onclick='commonJSObj.switchPage(1, null, \"" + href + "\")' class='fui-arrow-right'></a></li>";
+		pageString += "<li class='next'><a href='javascript:void(0)' onclick='commonJSObj.switchPage(1, null, \"" + href + "\")'>Newer &rarr;</a></li>";
 	}
 	$("#pageUI").html(pageString);
 };
@@ -116,10 +116,10 @@ commonJSObj.switchPage = function(type, obj, href)
 	{
 		pageNo = $(obj).html();
 	}
-	commonJSObj.ori_queryOrgs.page = pageNo - 1;
+	commonJSObj.ori_queryOrgs.pageNo = pageNo - 1;
 	//ajax获取下一页内容
 	$.get(href, commonJSObj.ori_queryOrgs, function(data){
-		$("#ajaxQueryList").html(data);
+		$("#mainContents").html(data);
 		//输出分页
 		commonJSObj.outputPageBtn(href);
 		//绑定相关事件
@@ -218,7 +218,7 @@ commonJSObj.queryByPage = function()
 {
 	$("#bg").show();
 	//每次点击查询按钮，都清掉页码，独立的查询方法只需关心其特有的查询条件，无需考虑页码
-	commonJSObj.ori_queryOrgs.page = 0;
+	commonJSObj.ori_queryOrgs.pageNo = 0;
 	//解决ajax缓存
 	var noCacheUrl = commonJSObj.url + ((commonJSObj.url.indexOf("?") == -1) ? "?" : "&") + "random=" + new Date();
 	$.ajax({

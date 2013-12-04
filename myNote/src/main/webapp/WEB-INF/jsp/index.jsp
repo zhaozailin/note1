@@ -30,7 +30,7 @@
 	<div class="container" style="margin-top:10px" id="queryFieldset">
 		<div class="row">
 			<div class="col-xs-12">
-				<h4>zailinZhao's note online v1.0</h4>
+				<p class="text-muted">zailinZhao's note online v1.0</p>
 			</div>
 		</div>
 		<div class="row" id="queryBtnField">
@@ -47,7 +47,16 @@
 			<i class="fa fa-spinner fa-spin" id="loadingUI" style="display: none;"></i>
 		</div>
 	</div>
-	<div class="container" id="mainContents"></div>
+	<div style="position: relative;">
+		<div class="container" id="mainContents" style="min-height:650px"></div>
+		<div class="container" id="viewContents" style="display: none;height: 1px;position: absolute;background-color:#ffffff;left: 50%;margin-left: -485px;z-index:2;">
+			<div style="font-size:20px;" id="articleTitle"></div>
+			<div style="" id="articleContent"></div>
+			<ul class="pager">
+			  <li class="previous"><a href="javascript:void(0)" id="returnBtn">&larr; 返回</a></li>
+			</ul>
+		</div>
+	</div>
 	
 	
 <!-- jquery -->
@@ -58,6 +67,7 @@
 <script language="javascript" src="styles/plugin/dp.SyntaxHighlighter/Scripts/shBrushXml.js"></script>
 <!-- bootstrap -->
 <script language="javascript" src="js/dist/js/bootstrap.min.js"></script>
+<script language="javascript" src="js/common.js"></script>
 <script language="javascript" src="js/article.js"></script>
 </body>
 </html>
