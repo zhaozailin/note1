@@ -131,11 +131,11 @@ commonJSObj.switchPage = function(type, obj, href)
 //ajax分页查询后绑定相关事件
 commonJSObj.afterAjaxBandEvent = function(href) {
 	switch (href) {
-	case "supplier/query":
-		bandEditKeyboard();
-		break;
-	case "customer/query":
-		customer.bandEditKeyboard();
+	case "articles/queryList":
+		//绑定点击标题事件
+		$("a[name=title]").click(function(){
+			article.view($(this).attr("aid"));
+		});
 		break;
 	default:
 		break;

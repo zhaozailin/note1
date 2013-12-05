@@ -68,20 +68,20 @@
 		<div class="container slideDiv" id="addContents">
 			<div class="row">
 				<div class="col-xs-12">
-					<h4>帖子标题</h4>
+					<div style="font-size:17px;">帖子标题</div>
 					<input type="text" class="form-control" placeholder="请输入标题" id="addArticleTitle"/>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" style="margin-top: 20px;">
 				<div class="col-xs-12">
-					<h4>帖子内容</h4>
+					<div style="font-size:17px;">帖子内容</div>
 					<textarea class="form-control" rows="4" id="addArticleContent" placeholder="请输入内容"></textarea>
 				</div>
 			</div>
 			<ul class="pager">
 			  <li class="previous"><a href="javascript:void(0)" id="addReturnBtn">&larr; 返回</a></li>
 			  <li class="next">
-			  	<a class="btn btn-success btn-sm" href="javascript:void(0)" id="addArticleBtnSave" style="background-color: red;">
+			  	<a class="btn btn-success btn-sm" href="javascript:void(0)" id="addArticleBtnSave" style="background-color: green;">
 					<i class="fa fa-arrow-circle-up"></i>
 					发布
 				</a>

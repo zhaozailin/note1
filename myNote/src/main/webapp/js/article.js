@@ -31,6 +31,7 @@ $(document).ready(function(){
 article.queryList = function() {
 	$("#loadingUI").show();
 	commonJSObj.ori_queryOrgs.keyword = $("#queryKeyword").val().trim();
+	commonJSObj.ori_queryOrgs.pageNo = 0;
 	$.get(commonJSObj.url, commonJSObj.ori_queryOrgs, function(resultHtml) {
 		$("#loadingUI").hide();
 		$("#mainContents").html(resultHtml);
@@ -57,8 +58,26 @@ article.view = function(id) {
 //保存帖子
 article.save = function() {
 	var json = {};
-	json.title = $("#addArticleTitle").val();
-	json.content = $("#addArticleContent").val();
+	var title = $("#addArticleTitle").val();
+	var content = $("#addArticleContent").val();
+	var valid = true;
+	if(title == "") {
+		$("#addArticleTitle").parent().addClass("has-error");
+		valid = false;
+	} else {
+		$("#addArticleTitle").parent().removeClass("has-error");
+	}
+	if(content == "") {
+		$("#addArticleContent").parent().addClass("has-error");
+		valid = false;
+	} else {
+		$("#addArticleContent").parent().removeClass("has-error");
+	}
+	if(!valid) {
+		return;
+	}
+	json.title = title;
+	json.content = content;
 	$("#loadingDiv").show();
 	$.post("articles/save", json, function(result){
 		$("#loadingDiv").hide();
@@ -81,6 +100,7 @@ article.slideDown = function(type) {
 		top:"650px"
 	}, function(){
 		$("#" + id).hide();
+		$("#mainContents").show();
 	});
 };
 
@@ -91,6 +111,7 @@ article.slideUp = function(type) {
 		id = "addContents";
 	}
 	$("#" + id).show();
+	$("#mainContents").hide();
 	$("#" + id).animate({
 		height:"650px",
 		top:"0px"
