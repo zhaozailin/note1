@@ -3,8 +3,8 @@
 
 package com.zzl.mynote.domain;
 
-import com.zzl.mynote.domain.ArticleTypeDataOnDemand;
 import com.zzl.mynote.domain.ArticleType;
+import com.zzl.mynote.domain.ArticleTypeDataOnDemand;
 import com.zzl.mynote.domain.ArticleTypeIntegrationTest;
 import java.util.Iterator;
 import java.util.List;

@@ -5,7 +5,7 @@ package com.zzl.mynote.domain;
 
 import com.zzl.mynote.domain.Article;
 import com.zzl.mynote.domain.ArticleDataOnDemand;
-import com.zzl.mynote.domain.ArticleType;
+import com.zzl.mynote.domain.ArticleTypeDataOnDemand;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
@@ -26,6 +27,9 @@ privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
     
     private List<Article> ArticleDataOnDemand.data;
     
+    @Autowired
+    ArticleTypeDataOnDemand ArticleDataOnDemand.articleTypeDataOnDemand;
+    
     public Article ArticleDataOnDemand.getNewTransientArticle(int index) {
         Article obj = new Article();
         setAuthor(obj, index);
@@ -33,7 +37,6 @@ privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
         setContent(obj, index);
         setLabel(obj, index);
         setTitle(obj, index);
-        setType(obj, index);
         setUpdateDate(obj, index);
         return obj;
     }
@@ -61,11 +64,6 @@ privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
     public void ArticleDataOnDemand.setTitle(Article obj, int index) {
         String title = "title_" + index;
         obj.setTitle(title);
-    }
-    
-    public void ArticleDataOnDemand.setType(Article obj, int index) {
-        ArticleType type = null;
-        obj.setType(type);
     }
     
     public void ArticleDataOnDemand.setUpdateDate(Article obj, int index) {
