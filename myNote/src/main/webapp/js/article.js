@@ -21,6 +21,10 @@ $(document).ready(function(){
 	$("#addReturnBtn").click(function(){
 		article.slideDown("add");
 	});
+	//绑定发帖保存事件
+	$("#addArticleBtnSave").click(function(){
+		article.save();
+	});
 });
 
 //分页查询
@@ -46,6 +50,22 @@ article.view = function(id) {
 			$("#articleTitle").html(result.article.title);
 			$("#articleContent").html(result.article.content);
 			article.slideUp("view");
+		}
+	}, "json");
+};
+
+//保存帖子
+article.save = function() {
+	var json = {};
+	json.title = $("#addArticleTitle").val();
+	json.content = $("#addArticleContent").val();
+	$("#loadingDiv").show();
+	$.post("articles/save", json, function(result){
+		$("#loadingDiv").hide();
+		if(result.status == 1) {
+			article.slideDown("add");
+			//刷新
+			article.queryList();
 		}
 	}, "json");
 };

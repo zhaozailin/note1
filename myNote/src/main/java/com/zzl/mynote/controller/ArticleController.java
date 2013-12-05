@@ -37,4 +37,13 @@ public class ArticleController {
 		result.put("status", 1);
 		return result.toString();
 	}
+	
+	@RequestMapping(value="/save")
+	@ResponseBody
+	public String save(Article article) {
+		JSONObject result = new JSONObject();
+		article.persist();
+		result.put("status", 1);
+		return result.toString();
+	}
 }

@@ -91,6 +91,9 @@
 		<!-- 发帖end -->
 	</div>
 	
+	<div class="loadingUI" id="loadingDiv">
+		<img alt="" src="images/loading.gif">
+	</div>
 	
 <!-- jquery -->
 <script type="text/javascript" src="js/plugin/jquery-1.10.2.min.js"></script>
