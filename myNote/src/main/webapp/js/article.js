@@ -25,6 +25,13 @@ $(document).ready(function(){
 	$("#addArticleBtnSave").click(function(){
 		article.save();
 	});
+	//给保存按钮注册键盘监听
+	$("#addContents").keypress(function(event){
+		if (event.keyCode == 13) {
+			$("#addArticleBtnSave").click();
+			return false;
+		}
+	});
 });
 
 //分页查询
@@ -77,7 +84,7 @@ article.save = function() {
 		return;
 	}
 	json.title = title;
-	json.content = content;
+	json.content = "<pre>" + content + "</pre>";
 	$("#loadingDiv").show();
 	$.post("articles/save", json, function(result){
 		$("#loadingDiv").hide();

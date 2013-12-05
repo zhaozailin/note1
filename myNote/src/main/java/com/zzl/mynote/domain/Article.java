@@ -59,7 +59,7 @@ public class Article {
 		if(null == keyword) {
 			keyword = "";
 		}
-		List<Article> list = entityManager().createQuery("select a from Article a where a.content like '%" + keyword + "%' order by a.updateDate")
+		List<Article> list = entityManager().createQuery("select a from Article a where a.content like '%" + keyword + "%' or a.title like '%" + keyword + "%' order by a.updateDate")
 				.setFirstResult(pageNo * limit)
 				.setMaxResults(limit)
 				.getResultList();
@@ -70,6 +70,6 @@ public class Article {
 		if(null == keyword) {
 			keyword = "";
 		}
-		return (Long) entityManager().createQuery("select count(*) from Article a where a.content like '%" + keyword + "%'").getSingleResult();
+		return (Long) entityManager().createQuery("select count(*) from Article a where a.content like '%" + keyword + "%' or a.title like '%" + keyword + "%'").getSingleResult();
 	}
 }
