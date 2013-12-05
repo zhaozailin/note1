@@ -2,3 +2,23 @@
 	max-width:none !important;
 	width:970px;
 }
+/* 有滑动效果的div样式 */
+.slideDiv {
+	display: none;
+	height: 1px;
+	position: absolute;
+	background-color:#ffffff !important;
+	left: 50%;
+	margin-left: -485px !important;
+	z-index:2;
+}
+/* 帖子标题样式 */
+.articleTitle {
+	font-family: 宋体;
+	color:#3498db;
+	font-size: medium;
+}
+/* 帖子内容样式 */
+.articleContent {
+	font-family: 宋体
+}

@@ -9,9 +9,17 @@ $(document).ready(function(){
 	$("#queryIconBtn").click(function(){
 		article.queryList();
 	});
-	//绑定返回事件
+	//绑定发帖事件
+	$("#addArticleBtn").click(function(){
+		article.slideUp("add");
+	});
+	//绑定查看返回事件
 	$("#returnBtn").click(function(){
-		article.slideDown();
+		article.slideDown("view");
+	});
+	//绑定发帖返回事件
+	$("#addReturnBtn").click(function(){
+		article.slideDown("add");
 	});
 });
 
@@ -37,25 +45,33 @@ article.view = function(id) {
 		if(result.status == 1) {
 			$("#articleTitle").html(result.article.title);
 			$("#articleContent").html(result.article.content);
-			article.slideUp();
+			article.slideUp("view");
 		}
 	}, "json");
 };
 
 //下滑隐藏
-article.slideDown = function() {
-	$("#viewContents").animate({
+article.slideDown = function(type) {
+	var id = "viewContents";
+	if(type == "add") {
+		id = "addContents";
+	}
+	$("#" + id).animate({
 		height:"1px",
 		top:"650px"
 	}, function(){
-		$("#viewContents").hide();
+		$("#" + id).hide();
 	});
 };
 
 //上滑显示
-article.slideUp = function() {
-	$("#viewContents").show();
-	$("#viewContents").animate({
+article.slideUp = function(type) {
+	var id = "viewContents";
+	if(type == "add") {
+		id = "addContents";
+	}
+	$("#" + id).show();
+	$("#" + id).animate({
 		height:"650px",
 		top:"0px"
 	});

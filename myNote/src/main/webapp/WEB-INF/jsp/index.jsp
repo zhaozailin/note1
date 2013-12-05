@@ -47,15 +47,48 @@
 			<i class="fa fa-spinner fa-spin" id="loadingUI" style="display: none;"></i>
 		</div>
 	</div>
+	<div class="container" style="margin-bottom:20px;">
+		<a class="btn btn-success btn-sm" href="javascript:void(0)" id="addArticleBtn">
+			<i class="fa fa-pencil fa-fw"></i>
+			发帖
+		</a>
+	</div>
 	<div style="position: relative;">
 		<div class="container" id="mainContents" style="min-height:650px"></div>
-		<div class="container" id="viewContents" style="display: none;height: 1px;position: absolute;background-color:#ffffff;left: 50%;margin-left: -485px;z-index:2;">
+		<!-- 查看begin -->
+		<div class="container slideDiv" id="viewContents">
 			<div style="font-size:20px;" id="articleTitle"></div>
 			<div style="" id="articleContent"></div>
 			<ul class="pager">
 			  <li class="previous"><a href="javascript:void(0)" id="returnBtn">&larr; 返回</a></li>
 			</ul>
 		</div>
+		<!-- 查看end -->
+		<!-- 发帖begin -->
+		<div class="container slideDiv" id="addContents">
+			<div class="row">
+				<div class="col-xs-12">
+					<h4>帖子标题</h4>
+					<input type="text" class="form-control" placeholder="请输入标题" id="addArticleTitle"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<h4>帖子内容</h4>
+					<textarea class="form-control" rows="4" id="addArticleContent" placeholder="请输入内容"></textarea>
+				</div>
+			</div>
+			<ul class="pager">
+			  <li class="previous"><a href="javascript:void(0)" id="addReturnBtn">&larr; 返回</a></li>
+			  <li class="next">
+			  	<a class="btn btn-success btn-sm" href="javascript:void(0)" id="addArticleBtnSave" style="background-color: red;">
+					<i class="fa fa-arrow-circle-up"></i>
+					发布
+				</a>
+			  </li>
+			</ul>
+		</div>
+		<!-- 发帖end -->
 	</div>
 	
 	
