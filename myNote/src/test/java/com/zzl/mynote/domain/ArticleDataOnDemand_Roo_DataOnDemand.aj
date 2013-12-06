@@ -36,6 +36,7 @@ privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
         setBeginDate(obj, index);
         setContent(obj, index);
         setLabel(obj, index);
+        setSimpleContent(obj, index);
         setTitle(obj, index);
         setUpdateDate(obj, index);
         return obj;
@@ -59,6 +60,11 @@ privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
     public void ArticleDataOnDemand.setLabel(Article obj, int index) {
         String label = "label_" + index;
         obj.setLabel(label);
+    }
+    
+    public void ArticleDataOnDemand.setSimpleContent(Article obj, int index) {
+        String simpleContent = "simpleContent_" + index;
+        obj.setSimpleContent(simpleContent);
     }
     
     public void ArticleDataOnDemand.setTitle(Article obj, int index) {

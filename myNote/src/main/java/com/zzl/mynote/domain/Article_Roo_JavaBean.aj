@@ -65,4 +65,12 @@ privileged aspect Article_Roo_JavaBean {
         this.type = type;
     }
     
+    public String Article.getSimpleContent() {
+        return this.simpleContent;
+    }
+    
+    public void Article.setSimpleContent(String simpleContent) {
+        this.simpleContent = simpleContent;
+    }
+    
 }

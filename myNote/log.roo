@@ -45,3 +45,11 @@ field date --fieldName tt --type java.util.Date --dateTimeFormatPattern "yy-MM-d
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 10:09:07
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 22:55:14
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-06 13:01:04
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-06 22:41:42
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-06 22:42:32
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-06 22:46:27
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-06 22:46:35
+focus --class ~.domain.Article
+field string --fieldName simpleContent
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-06 22:48:03
