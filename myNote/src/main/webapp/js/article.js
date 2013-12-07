@@ -2,35 +2,36 @@
 var article = {};
 
 //页面加载后执行
-$(document).ready(function(){
+$(document).ready(function() {
+	
+	dp.SyntaxHighlighter.ClipboardSwf = 'styles/plugin/dp.SyntaxHighlighter/Scripts/clipboard.swf';
+	
 	commonJSObj.pageOnload("articles/queryList");
 	article.queryList();
 	//绑定查询事件
-	$("#queryIconBtn").click(function(){
+	$("#queryIconBtn").click(function() {
 		article.queryList();
 	});
 	//绑定发帖事件
-	$("#addArticleBtn").click(function(){
+	$("#addArticleBtn").click(function() {
 		article.slideUp("add");
 	});
 	//绑定查看返回事件
-	$("#returnBtn").click(function(){
+	$("#returnBtn").click(function() {
 		article.slideDown("view");
 	});
 	//绑定发帖返回事件
-	$("#addReturnBtn").click(function(){
+	$("#addReturnBtn").click(function() {
 		article.slideDown("add");
 	});
 	//绑定发帖保存事件
-	$("#addArticleBtnSave").click(function(){
+	$("#addArticleBtnSave").click(function() {
 		article.save();
 	});
-	//给保存按钮注册键盘监听
-	$("#addContents").keypress(function(event){
-		if (event.keyCode == 13) {
-			$("#addArticleBtnSave").click();
-			return false;
-		}
+	//绑定添加代码样式事件
+	$("#codeCss").contents().find("a").click(function(event) {
+		var type = $(this).html();
+		article.addCodeCss(type);
 	});
 });
 
@@ -57,6 +58,7 @@ article.view = function(id) {
 		if(result.status == 1) {
 			$("#articleTitle").html(result.article.title);
 			$("#articleContent").html(result.article.content);
+			dp.SyntaxHighlighter.HighlightAll('code'); 
 			article.slideUp("view");
 		}
 	}, "json");
@@ -65,8 +67,17 @@ article.view = function(id) {
 //保存帖子
 article.save = function() {
 	var json = {};
-	var title = $("#addArticleTitle").val();
-	var content = $("#addArticleContent").val();
+	var title = $("#addArticleTitle").val().trim();
+	var content = $("#addArticleContent").html().trim();
+	content = content.replace("<small style=\"color:#999999;\">html-begin</small>&nbsp;<div style=\"min-height:20px\" name=\"htmlCode\" contenteditable=\"true\">", "<pre name=\"code\" class=\"html\">");
+	content = content.replace("</div><small style=\"color:#999999;\">html-end</small>&nbsp;", "</pre>");
+	var simpleContent = "";
+	var nodes = document.getElementById("addArticleContent").childNodes;
+	for(var i=0; i<nodes.length; i++) {
+		if(nodes[i].nodeType == 3) {
+			simpleContent += nodes[i].nodeValue;
+		}
+	}
 	var valid = true;
 	if(title == "") {
 		$("#addArticleTitle").parent().addClass("has-error");
@@ -84,7 +95,8 @@ article.save = function() {
 		return;
 	}
 	json.title = title;
-	json.content = "<pre>" + content + "</pre>";
+	json.content = content;
+	json.simpleContent = simpleContent;
 	$("#loadingDiv").show();
 	$.post("articles/save", json, function(result){
 		$("#loadingDiv").hide();
@@ -123,4 +135,21 @@ article.slideUp = function(type) {
 		height:"650px",
 		top:"0px"
 	});
+};
+
+//添加代码样式
+article.addCodeCss = function(type) {
+	switch (type) {
+	case "html":
+		$("#addArticleContent").append("<small style='color:#999999;'>html-begin</small>&nbsp<div contentEditable=true style='min-height:20px' name='htmlCode'></div><small style='color:#999999;'>html-end</small>&nbsp");
+		break;
+	case "css":
+		$("#addArticleContent").append("<small style='color:#999999;'>css-begin</small>&nbsp<div contentEditable=true style='min-height:20px' name='cssCode'></div><small style='color:#999999;'>css-end</small>&nbsp");
+		break;
+	case "javascript":
+		$("#addArticleContent").append("<small style='color:#999999;'>javascript-begin</small>&nbsp<div contentEditable=true style='min-height:20px' name='javascriptCode'></div><small style='color:#999999;'>javascript-end</small>&nbsp");
+		break;
+	default:
+		break;
+	}
 };

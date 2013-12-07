@@ -40,12 +40,8 @@ public class ArticleController {
 			}
 			tempVO.setUpdateDate(temp.getUpdateDate());
 			tempVO.setTitle(setColor(keyword, temp.getTitle()));
-			String oriContent = setColor(keyword, temp.getContent());
-			/*
-			 * 去掉<pre></pre>
-			 */
-			String newContent = oriContent.substring(5, oriContent.length() - 6);
-			tempVO.setContent(newContent);
+			String oriContent = setColor(keyword, temp.getSimpleContent());
+			tempVO.setSimpleContent(oriContent);
 			newList.add(tempVO);
 		}
 		model.addAttribute("articles", newList);

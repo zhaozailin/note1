@@ -53,3 +53,4 @@ quit
 focus --class ~.domain.Article
 field string --fieldName simpleContent
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-06 22:48:03
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-07 00:53:42

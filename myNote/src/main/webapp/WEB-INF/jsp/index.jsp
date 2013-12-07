@@ -19,12 +19,6 @@
 <!-- 公用样式 -->
 <link type="text/css" rel="stylesheet" href="styles/common.css"/>
 
-<script type="text/javascript">
-// 	$(document).ready(function(){
-// 		dp.SyntaxHighlighter.ClipboardSwf = 'styles/plugin/dp.SyntaxHighlighter/Scripts/clipboard.swf';
-// 	    dp.SyntaxHighlighter.HighlightAll('code');
-// 	});
-</script>
 </head>
 <body>
 	<div class="container" style="margin-top:10px" id="queryFieldset">
@@ -74,8 +68,24 @@
 			</div>
 			<div class="row" style="margin-top: 20px;">
 				<div class="col-xs-12">
-					<div style="font-size:17px;">帖子内容</div>
-					<textarea class="form-control" rows="4" id="addArticleContent" placeholder="请输入内容"></textarea>
+					<div style="font-size:17px;">帖子内容</div> 
+					<div class="row">
+						<div class="col-xs-12">
+							<div style="background-color: #f2f2f2;">
+								<div class="btn-group">
+					          		<button data-toggle="dropdown" type="button" class="btn btn-info btn-sm dropdown-toggle">
+					          			添加代码 <span class="caret"></span>
+					          		</button>
+					         		<ul role="menu" class="dropdown-menu" id="codeCss">
+							            <li><a href="javascript:void(0)">javascript</a></li>
+							            <li><a href="javascript:void(0)">html</a></li>
+							            <li><a href="javascript:void(0)">css</a></li>
+					          		</ul>
+					        	</div>
+							</div>
+						</div>
+					</div>
+					<div contentEditable=true class="form-control" id="addArticleContent" placeholder="请输入内容" style="border-radius:0px 0px 4px 4px;height: 250px;overflow: auto;"></div>
 				</div>
 			</div>
 			<ul class="pager">

@@ -7,7 +7,7 @@ public class ArticleVO {
 	private Long id;
 	/**
      */
-	private String content;
+	private String simpleContent;
 
 	/**
      */
@@ -43,14 +43,14 @@ public class ArticleVO {
 		this.id = id;
 	}
 
-	public String getContent()
+	public String getSimpleContent()
 	{
-		return content;
+		return simpleContent;
 	}
 
-	public void setContent(String content)
+	public void setSimpleContent(String simpleContent)
 	{
-		this.content = content;
+		this.simpleContent = simpleContent;
 	}
 
 	public String getTitle()
