@@ -31,7 +31,7 @@ $(document).ready(function() {
 	//绑定添加代码样式事件
 	$("a[name=code]").click(function() {
 		var type = $(this).children("span").html();
-		article.addCodeCss(type);
+		commonJSObj.insertAtCursor(document.getElementById("addArticleContent"), type);
 	});
 });
 
@@ -135,61 +135,4 @@ article.slideUp = function(type) {
 		height:"650px",
 		top:"0px"
 	});
-};
-
-//添加代码
-article.addCodeCss = function(type) {
-	//在光标处插入字符串
-    // myField    文本框对象
-    // myValue 要插入的值
-    function insertAtCursor(myField, myValue)
-    {
-        //IE support
-        if (document.selection)
-        {
-            myField.focus();
-            sel            = document.selection.createRange();
-            sel.text    = myValue;
-            sel.select();
-        }
-        //MOZILLA/NETSCAPE support
-        else if (myField.selectionStart || myField.selectionStart == '0')
-        {
-            var startPos    = myField.selectionStart;
-            var endPos = myField.selectionEnd;
-            // save scrollTop before insert
-            var restoreTop    = myField.scrollTop;
-            myField.value    = myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
-            if (restoreTop > 0)
-            {
-                // restore previous scrollTop
-                myField.scrollTop = restoreTop;
-            }
-            myField.focus();
-            myField.selectionStart    = startPos + myValue.length;
-            myField.selectionEnd    = startPos + myValue.length;
-        } else {
-            myField.value += myValue;
-            myField.focus();
-        }
-    }
-
-	
-	
-	
-	//ie
-	var obj = $("#addArticleContent");
-	var str = "[" + type + "][/" + type + "]";
-	if (document.selection) {
-	   obj.focus();
-	   var sel = document.selection.createRange();
-	   sel.text = str;
-	} else if (typeof obj.selectionStart === 'number' && typeof obj.selectionEnd === 'number') {
-	   var startPos = obj.selectionStart;
-	   var endPos = obj.selectionEnd;
-	   var tmpStr = obj.value;
-	   obj.value = tmpStr.substring(0, startPos) + str + tmpStr.substring(endPos, tmpStr.length);
-	} else {
-	   obj.value += str;
-	}
 };
