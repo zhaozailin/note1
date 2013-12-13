@@ -71,21 +71,12 @@
 					<div style="font-size:17px;">帖子内容</div> 
 					<div class="row">
 						<div class="col-xs-12">
-							<div style="background-color: #f2f2f2;">
-								<div class="btn-group">
-					          		<button data-toggle="dropdown" type="button" class="btn btn-info btn-sm dropdown-toggle">
-					          			添加代码 <span class="caret"></span>
-					          		</button>
-					         		<ul role="menu" class="dropdown-menu" id="codeCss">
-							            <li><a href="javascript:void(0)">javascript</a></li>
-							            <li><a href="javascript:void(0)">html</a></li>
-							            <li><a href="javascript:void(0)">css</a></li>
-					          		</ul>
-					        	</div>
+							<div style="background-color: #f2f2f2;border-radius:4px 4px 0 0;border:1px solid #CCCCCC;border-bottom:0px;">
+								<a href="javascript:void(0)" name="code"><span class="badge zzl_codeBtn">html</span></a>
 							</div>
 						</div>
 					</div>
-					<div contentEditable=true class="form-control" id="addArticleContent" placeholder="请输入内容" style="border-radius:0px 0px 4px 4px;height: 250px;overflow: auto;"></div>
+					<textarea class="form-control" id="addArticleContent" placeholder="请输入内容" style="border-radius:0px 0px 4px 4px;height: 250px;"></textarea>
 				</div>
 			</div>
 			<ul class="pager">
@@ -101,7 +92,7 @@
 		<!-- 发帖end -->
 	</div>
 	
-	<div class="loadingUI" id="loadingDiv">
+	<div class="zzl_loadingUI" id="loadingDiv">
 		<img alt="" src="images/loading.gif">
 	</div>
 	

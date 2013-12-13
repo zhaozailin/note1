@@ -14,8 +14,8 @@
 <c:forEach items="${articles}" var="article">
 	<div class="row" style="margin-bottom: 10px;">
 		<div class="col-xs-12">
-			<div><a href="javascript:void(0)" class="articleTitle" name="title" aid="${article.id}">${article.title}</a></div>
-			<div class="articleContent">${article.simpleContent}</div>
+			<div><a href="javascript:void(0)" class="zzl_articleTitle" name="title" aid="${article.id}">${article.title}</a></div>
+			<div class="zzl_articleContent">${article.simpleContent}</div>
 			<em class="text-success">author:${article.author} date:<fmt:formatDate value="${article.updateDate}"  pattern="yyyy-MM-dd HH:mm:ss"/></em>
 		</div>
 	</div>
