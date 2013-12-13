@@ -31,7 +31,7 @@ $(document).ready(function() {
 	//绑定添加代码样式事件
 	$("a[name=code]").click(function() {
 		var type = $(this).children("span").html();
-		commonJSObj.insertAtCursor(document.getElementById("addArticleContent"), type);
+		commonJSObj.insertAtCursor(document.getElementById("addArticleContent"), "[" + type + "]\n\r[/" + type + "]");
 	});
 });
 
